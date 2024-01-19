@@ -1,0 +1,56 @@
+{@services.qute-example.src.main.java.usecase.ReceiptService receipt}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Payment Receipt</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f8f8f8;
+          color: #333;
+          max-width: 375px;
+          margin: auto;
+          border: 1px solid #ddd;
+          padding: 20px;
+        }
+        .header {
+          background-color: #0071ce;
+          color: white;
+          padding: 10px;
+          text-align: center;
+        }
+        .section {
+          margin-top: 20px;
+        }
+        .footer {
+          text-align: center;
+          margin-top: 30px;
+          font-size: small;
+        }
+      </style>
+    </head>
+      <body>
+        <div class="receipt-container">
+          <div class="header">
+            <h1>{establishmentName}</h1>
+          </div>
+          <div class="section">
+            <strong>Purchase Time:</strong> {date}<br>
+          </div>
+          <div class="section">
+            <strong>Transaction ID:</strong> {transactionId}
+          </div>
+          <div class="section">
+          <p><strong>Payment Method:</strong> {paymentType}</p>
+          {#if isInstallments}
+            <p><strong>Installment:</strong> {installment} of {totalInstallments}</p>
+            <p><strong>Total Amount:</strong> ${totalAmount}</p>
+          {/if}
+          <p><strong>Amount Paid:</strong> ${amount}</p>
+          </div>
+          <div class="footer">
+            Thank you for shopping with us.
+          </div>
+      </div>
+    </body>
+  </html>
