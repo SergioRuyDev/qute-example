@@ -14,7 +14,7 @@ public class ReceiptService {
     Template receipt;
 
     @Inject
-    PdfGenerationService pdfGenerationService;
+    GenerationService generationService;
 
     public String generateReceipt(ReceiptData data) {
         return receipt
@@ -29,21 +29,5 @@ public class ReceiptService {
                 .data("paymentType", data.getPaymentType())
                 .data("establishmentName", data.getEstablishmentName())
                 .render();
-    }
-
-    public byte[] generateReceiptPdf(ReceiptData data) throws Exception {
-        String htmlContent = receipt
-                .data("date", data.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")))
-                .data("transactionId", data.getTransactionId())
-                .data("establishmentName", data.getEstablishmentName())
-                .data("isInstallments", data.isInstallments())
-                .data("installment", data.getInstallment())
-                .data("totalAmount", data.getTotalAmount())
-                .data("amount", data.getAmount())
-                .data("totalInstallments", data.getTotalInstallments())
-                .data("paymentType", data.getPaymentType())
-                .data("establishmentName", data.getEstablishmentName())
-                .render();
-        return pdfGenerationService.generatePdfFromHtml(htmlContent);
     }
 }
