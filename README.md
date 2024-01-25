@@ -1,64 +1,56 @@
-# qute-example
+# Qute Example Project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Description of Project
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+This project demonstrates how to generate PDF documents from HTML templates using Quarkus and the openhtmltopdf library. It is a practice project designed to explore the capabilities of Quarkus in generating dynamic PDFs for various purposes such as receipts, reports, or any document requirement.
 
-## Running the application in dev mode
+## Functionalities
 
-You can run your application in dev mode that enables live coding using:
+:bell: Generation of PDF documents from HTML templates.
 
-```shell script
-./mvnw compile quarkus:dev
+:bell: Utilization of Quarkus Qute Templating Engine for dynamic HTML content.
+
+:bell: Integration with openhtmltopdf library for converting HTML to PDF format.
+
+## Tools and technologies used:
+1. Java 17+
+2. Quarkus
+3. Qute Templating Engine
+4. openhtmltopdf
+5. Maven
+6. Your preferred IDE (e.g., IntelliJ IDEA, VSCode)
+7. Postman or any API testing tool
+
+## Steps and Requirements to build and run the Project
+**1. Clone the application.**
+```bash
+git clone https://github.com/SergioRuyDev/qute-example.git
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+2. Navigate to the project directory.
 
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
+```bash
+cd qute-example
 ```
+3. Run the application using Maven.
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+```bash
+./mvnw quarkus:dev
 ```
+This command will start the application in development mode with live coding enabled.
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+4. Access the application.
 
-## Creating a native executable
+The application should now be running on http://localhost:8080.
+You can generate a PDF using the provided endpoint and view it in your browser or download it.
+5. Test the PDF generation.
 
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
+Use Postman or any API testing tool to send a request to the PDF generation endpoint.
+Example POST request:
+```bash
+POST - URL - http://localhost:8080/pdf
 ```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/qute-example-1.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- RESTEasy Reactive's REST Client ([guide](https://quarkus.io/guides/rest-client-reactive)): Call REST services
-  reactively
-- SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Document your REST APIs with OpenAPI - comes
-  with Swagger UI
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A Jakarta REST implementation utilizing
-  build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the
-  extensions that depend on it.
+Project Purpose
+This project is created for educational purposes, focusing on learning Quarkus, Qute Templating Engine, and PDF generation using openhtmltopdf. 
+It demonstrates the capabilities of these technologies in a simple, practical example. 
+Feel free to explore, modify, and use the code for your learning and development.
